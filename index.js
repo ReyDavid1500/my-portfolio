@@ -33,7 +33,7 @@ try {
             message: message,
         };
 
-        fetch("portfolio-server-kappa-three.vercel.app/", {
+        fetch("https://portfolio-server-kappa-three.vercel.app/", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
