@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Personal Portfolio Website</title>
+    <script
+      src="https://kit.fontawesome.com/03d5d87de7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <nav>
+          <img src="./images/DAVID.png" class="logo" alt="logo" />
+          <ul onclick="closeMenu()" id="side-menu">
+            <li><a class="nav-menu" href="#header">Home</a></li>
+            <li><a class="nav-menu" href="#about">About</a></li>
+            <li><a class="nav-menu" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-menu" href="#contact">Contact</a></li>
+            <i class="fas fa-times" onclick="closeMenu()"></i>
+          </ul>
+          <i class="fas fa-bars" onclick="openMenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>FrontEnd Web Developer</p>
+          <h1>
+            Hi, I'm <span>David</span> <br />
+            Guzmán from Chile
+          </h1>
+        </div>
+      </div>
+      <!--About-->
+    </header>
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="./images/profile.jpeg" alt="user" />
+          </div>
+          <div class="about-col-2">
+            <h2 class="sub-title">About Me</h2>
+            <p>
+              Enthusiastic and self-taught Front-End Web Developer with a strong
+              foundation in HTML, CSS, and JavaScript. Leveraging my engineering
+              background, fluency in English, and sales and business experience,
+              I am exploring a new horizon in my professional life. Over the
+              past six months, I have acquired a solid understanding of the
+              fundamentals of web development and am eager to apply my skills to
+              contribute to a tech industry team. My goal is to collaborate with
+              a forward-thinking company where I can actively participate in
+              solving complex problems and developing innovative features. I am
+              a fast learner, proficient in understanding intricate topics and
+              challenges. With a strong focus on client satisfaction, I am
+              committed to delivering high-quality solutions that meet both
+              technical and business requirements. I am excited to contribute to
+              a team that values creativity, growth, and continuous improvement.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="openTab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="openTab('experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="openTab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>UI/UX</span><br />Designing Web/App interfaces</li>
+                <li>
+                  <span>FrontEnd Development</span
+                  ><br />JavaScript/ReactJS/NextJS
+                </li>
+                <li>
+                  <span>BackEnd Development</span><br />JavaScript/ExpressJS
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li>
+                  <span>Nov 2021 - Mar 2023</span><br />Entrepreneur at Rumen
+                  Carnes Ahumadas
+                </li>
+                <li>
+                  <span>Nov 2019 - Dec 2020 </span><br />Entrepreneur at Pan
+                  Meru
+                </li>
+                <li>
+                  <span>Nov 2017 - Jul 2019 </span><br />Sales Engineer at
+                  Indura Grupo AirProducts
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li>
+                  <span>Sep 2013 - Sep 2014</span><br />Advance English
+                  Certificate C1
+                </li>
+                <li>
+                  <span>Sep 2005 - Jun 2011</span><br />Materials Engineer
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Services-->
+    <section id="certificates">
+      <div class="container">
+        <h2 class="sub-title">My Certificates</h2>
+        <div class="certificate-list">
+          <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>HTML Y CSS</h2>
+            <p>
+              Curso definitivo de HTML y CSS, donde se vieron todos los
+              fundamentos de estos lenguajes que connstuyen la web
+            </p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="./utils/diploma-html-css.pdf"
+              >See certificate</a
+            >
+          </div>
+          <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>JavaScript</h2>
+            <p>
+              Curso básico de JavaScrip en el cual se estudiaron y pusieron en
+              practica los fundamentos de este lenguaje de programación.
+            </p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="./utils/diploma-basico-javascript.pdf"
+              >See certificate</a
+            >
+          </div>
+          <div>
+            <i class="fa-solid fa-file-code"></i>
+            <h2>React JS</h2>
+            <p>
+              Curso de React JS en el cual se vieron conceptos como la creación
+              y manejos de componontes, props, contextos, localStorage, estados,
+              entre otros.
+            </p>
+            <a target="_blank" rel="noreferrer" href="./utils/diploma-react.pdf"
+              >See certificate</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Portfolio-->
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="sub-title">My Work</h2>
+        <div class="work-list">
+          <div class="work">
+            <img
+              loading="lazy"
+              src="./images/kelly-sikkema-iqPAE_bNqTw-unsplash.jpg"
+              alt="work-1"
+            />
+            <div class="layer">
+              <h3>Shopping List App</h3>
+              <p>
+                Web application that enables user registration and seamless
+                shopping list management. With a focus on efficiency and
+                convenience, the application allows you to create, mark, and
+                delete items on your shopping lists.
+              </p>
+              <div class="external-links">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/ReyDavid1500/ShoppingList"
+                >
+                  <i class="fa-solid fa-code-pull-request"></i>
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://shopping-list-reydavid1500.vercel.app/signin"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="work">
+            <img
+              loading="lazy"
+              src="./images/markus-spiske--dbOrdtrR1A-unsplash.jpg"
+              alt="work-2"
+            />
+            <div class="layer">
+              <h3>Shopping List App BackEnd</h3>
+              <p>
+                Here you can see the server's repository. Different technologies
+                were used to create the data base and to manage HTTP requests
+                and authentication.
+              </p>
+              <div class="external-links">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/ReyDavid1500/ShoppingList-server"
+                >
+                  <i class="fa-solid fa-code-pull-request"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="work">
+            <img
+              loading="lazy"
+              src="./images/cody-scott-milewski-u26fHO4W9DM-unsplash.jpg"
+              alt="work-3"
+            />
+            <div class="layer">
+              <h3>Image Search APP</h3>
+              <p>
+                Web application that enables user to search Images using the
+                Unsplash API. It was created using HTML, CSS and vanilla
+                JavaScript.
+              </p>
+              <div class="external-links">
+                <a target="_blank" rel="noreferrer" href="#">
+                  <i class="fa-solid fa-code-pull-request"></i>
+                </a>
+                <a target="_blank" rel="noreferrer" href="#">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">See More</a>
+      </div>
+    </section>
+    <!--Contact-->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h2 class="sub-title">Contact Me</h2>
+            <p><i class="fas fa-paper-plane"></i> davidguzman1500@gmail.com</p>
+            <p><i class="fas fa-phone-square-alt"></i> +56 9 84541821</p>
+            <div class="social-icons">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/ReyDavid1500"
+              >
+                <i class="fa-solid fa-code-branch"></i>
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/rdguzmanp/"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <a href="./utils/English-Resume.pdf" download class="btn btn2"
+              >Download CV</a
+            >
+          </div>
+          <div class="contact-right">
+            <form>
+              <input
+                id="name"
+                type="text"
+                name="Name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                id="email"
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Your Massage"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright <i class="fa-regular fa-copyright"></i>. Made with
+          <i class="fas fa-heart"></i> by David Guzmán.
+        </p>
+      </div>
+    </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
