@@ -33,7 +33,9 @@ try {
             message: message,
         };
 
-        fetch("https://portfolio-server-kappa-three.vercel.app/", {
+        const API_URL = process.env.API_URL;
+
+        fetch(API_URL, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -42,7 +44,6 @@ try {
         });
         form.reset();
         alert("Message sent...")
-
     })
 } catch (error) {
     console.log(error);
