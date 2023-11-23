@@ -1,6 +1,6 @@
-const dotenv = require("dotenv")
+import { config } from "dotenv";
 
-dotenv.config();
+config();
 
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
