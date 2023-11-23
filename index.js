@@ -1,6 +1,4 @@
-import { config } from "dotenv";
-
-config();
+import API_URL from "./config";
 
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
@@ -36,8 +34,6 @@ try {
             email: email,
             message: message,
         };
-
-        const API_URL = process.env.API_URL;
 
         fetch(API_URL, {
             method: "POST",
