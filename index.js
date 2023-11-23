@@ -1,6 +1,6 @@
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
-const openTab = (tabName) => {
+const openTab = (event, tabName) => {
     Array.from(tabLinks).forEach(tabLink => tabLink.classList.remove("active-link"));
 
     Array.from(tabContents).forEach(tabContent => tabContent.classList.remove("active-tab"));

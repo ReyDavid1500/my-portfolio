@@ -233,7 +233,7 @@ nav ul li a:hover::after {
   transform: scale(1.1);
 }
 .work:hover .layer {
-  height: 86%;
+  height: 89%;
 }
 .btn {
   display: block;

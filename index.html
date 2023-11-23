@@ -59,13 +59,18 @@
               a team that values creativity, growth, and continuous improvement.
             </p>
             <div class="tab-titles">
-              <p class="tab-links active-link" onclick="openTab('skills')">
+              <p
+                class="tab-links active-link"
+                onclick="openTab(event, 'skills')"
+              >
                 Skills
               </p>
-              <p class="tab-links" onclick="openTab('experience')">
+              <p class="tab-links" onclick="openTab(event, 'experience')">
                 Experience
               </p>
-              <p class="tab-links" onclick="openTab('education')">Education</p>
+              <p class="tab-links" onclick="openTab(event, 'education')">
+                Education
+              </p>
             </div>
             <div class="tab-contents active-tab" id="skills">
               <ul>
@@ -315,6 +320,6 @@
       </div>
     </section>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script type="module" src="./index.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
