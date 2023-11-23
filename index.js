@@ -1,3 +1,7 @@
+const dotenv = require("dotenv")
+
+dotenv.config();
+
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
 const openTab = (tabName) => {
