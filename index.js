@@ -1,5 +1,3 @@
-import API_URL from "./config";
-
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
 const openTab = (tabName) => {
