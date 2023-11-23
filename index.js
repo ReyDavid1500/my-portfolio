@@ -35,7 +35,7 @@ try {
             message: message,
         };
 
-        fetch(API_URL, {
+        fetch("https://portfolio-server-kappa-three.vercel.app/", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
