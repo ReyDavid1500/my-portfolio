@@ -1,3 +1,5 @@
+import { API_URL } from "./config.mjs";
+
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
 const openTab = (event, tabName) => {
@@ -33,7 +35,7 @@ try {
             message: message,
         };
 
-        fetch("https://portfolio-server-kappa-three.vercel.app/", {
+        fetch(API_URL, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
