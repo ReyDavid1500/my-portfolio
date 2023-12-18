@@ -22,30 +22,74 @@ const closeMenu = () => {
 
 const form = document.querySelector("form");
 
-try {
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
 
-        const data = {
-            name: name,
-            email: email,
-            message: message,
-        };
+    // Collect form data
+    const formData = new FormData(form);
+    const emailData = {
+        from: "Acme <onboarding@resend.dev>",
+        to: ["davidguzman1500@gmail.com"],
+        subject: formData.get('name'),
+        html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
+    };
 
-        fetch(API_URL, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
-        form.reset();
-        alert("Message sent...")
+    console.log(emailData)
+
+    // Send form data to the server
+    fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(emailData)
     })
-} catch (error) {
-    console.log(error);
-}
+        .then(response => response.json())
+        .then(data => {
+            // Process the response from the server
+            if (data.success) {
+                // Email sent successfully
+                console.log('Email sent successfully!')
+                form.reset();
+                alert("Message sent successfully")
+                // Perform any additional actions or show a success message to the user
+            } else {
+                // Email sending failed
+                console.log('Failed to send email:', data.error);
+                // Handle the error or show an error message to the user
+            }
+        })
+        .catch(error => {
+            // Handle any network or server errors
+            console.error('An error occurred:', error);
+            // Show an error message to the user
+        });
+});
+
+// try {
+//     form.addEventListener("submit", e => {
+//         e.preventDefault();
+//         const name = document.getElementById("name").value;
+//         const email = document.getElementById("email").value;
+//         const message = document.getElementById("message").value;
+
+//         const data = {
+//             name: name,
+//             email: email,
+//             message: message,
+//         };
+
+//         fetch(API_URL, {
+//             method: "POST",
+//             body: JSON.stringify(data),
+//             headers: {
+//                 "Content-Type": "application/json",
+//             }
+//         });
+//         form.reset();
+//         alert("Message sent...")
+//     })
+// } catch (error) {
+//     console.log(error);
+// }
 
