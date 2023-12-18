@@ -1,5 +1,3 @@
-const API_URL = "https://portfolio-server-reydavid1500.vercel.app"
-
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
 const openTab = (event, tabName) => {
@@ -33,7 +31,7 @@ form.addEventListener('submit', function (event) {
         html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
     };
 
-    fetch(`${API_URL}/contact`, {
+    fetch("https://portfolio-server-reydavid1500.vercel.app/contact", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
