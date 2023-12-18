@@ -1,4 +1,4 @@
-const API_URL = "https://portfolio-server-kappa-three.vercel.app/"
+const API_URL = "https://portfolio-server-reydavid1500.vercel.app/"
 
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
