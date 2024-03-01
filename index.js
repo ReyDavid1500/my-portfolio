@@ -31,7 +31,9 @@ form.addEventListener('submit', function (event) {
         html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
     };
 
-    fetch("https://portfolio-server-reydavid1500.vercel.app/contact", {
+    console.log(import.meta.env.VITE_URL);
+
+    fetch(import.meta.env.VITE_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
