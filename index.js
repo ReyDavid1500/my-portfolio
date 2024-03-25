@@ -1,6 +1,7 @@
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
-const openTab = (event, tabName) => {
+
+export function openTab(event, tabName) {
     Array.from(tabLinks).forEach(tabLink => tabLink.classList.remove("active-link"));
 
     Array.from(tabContents).forEach(tabContent => tabContent.classList.remove("active-tab"));
@@ -9,14 +10,20 @@ const openTab = (event, tabName) => {
     document.getElementById(tabName).classList.add("active-tab");
 };
 
+window.openTab = openTab;
+
 const sideMenu = document.getElementById("side-menu");
 
-const openMenu = () => {
+export const openMenu = () => {
     sideMenu.style.right = "0";
 }
-const closeMenu = () => {
+window.openMenu = openMenu;
+
+export const closeMenu = () => {
     sideMenu.style.right = "-200px";
 }
+
+window.closeMenu = closeMenu;
 
 const form = document.querySelector("form");
 
