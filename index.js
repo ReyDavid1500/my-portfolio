@@ -1,5 +1,11 @@
 const tabLinks = document.getElementsByClassName("tab-links");
 const tabContents = document.getElementsByClassName("tab-contents");
+const userInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+const form = document.querySelector("form");
+const invalidMsg = document.getElementById("invalid-toast")
+
 
 export function openTab(event, tabName) {
     Array.from(tabLinks).forEach(tabLink => tabLink.classList.remove("active-link"));
@@ -25,7 +31,6 @@ export const closeMenu = () => {
 
 window.closeMenu = closeMenu;
 
-const form = document.querySelector("form");
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -37,8 +42,6 @@ form.addEventListener('submit', function (event) {
         subject: formData.get('name'),
         html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
     };
-
-    console.log(import.meta.env.VITE_URL);
 
     fetch(import.meta.env.VITE_URL, {
         method: 'POST',
@@ -61,4 +64,3 @@ form.addEventListener('submit', function (event) {
             console.error('An error occurred:', error);
         });
 });
-

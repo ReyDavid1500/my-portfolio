@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,500;0,6..12,600;1,6..12,400;1,6..12,500&display=swap");
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #080808 inset;
+  -webkit-text-fill-color: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -291,17 +296,9 @@ nav ul li a:hover::after {
 .contact-right form {
   width: 100%;
 }
-form input,
-form textarea {
-  width: 100%;
-  border: 0;
-  outline: none;
-  background: #262626;
-  padding: 15px;
-  margin: 15px 0;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 6px;
+form {
+  display: flex;
+  flex-direction: column;
 }
 form btn2 {
   padding: 14px 60px;
@@ -309,6 +306,136 @@ form btn2 {
   margin-top: 20px;
   cursor: pointer;
 }
+/* Input Styles */
+.input-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background: #080808;
+  margin-bottom: 45px;
+}
+.input-container::before {
+  position: absolute;
+  content: "";
+  height: 60%;
+  width: 0.12rem;
+  left: 16%;
+  border-radius: 0.5rem;
+  background: #707070;
+}
+.input-container .input-field {
+  position: relative;
+  max-height: 4.2rem;
+  padding: 1.8rem 2.5rem;
+  padding-left: 7rem !important;
+  border: 0.15rem solid rgb(68, 68, 68);
+  color: #d2d2d2;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 100%;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+.input-container .message-field {
+  resize: none;
+  position: relative;
+  max-height: 9rem;
+  padding: 1.8rem 2.5rem;
+  padding-left: 7rem !important;
+  border: 0.15rem solid rgb(68, 68, 68);
+  color: #d2d2d2;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 100%;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+.input-container label {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  color: #999999;
+  padding: 0 0.3rem;
+  user-select: none;
+}
+#input-icon {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999999;
+  font-size: 1.2rem;
+}
+.input-field:focus + label {
+  top: 0%;
+  left: 7%;
+  background-color: #080808;
+  color: #d2d2d2;
+}
+.message-field:focus + label {
+  top: 0%;
+  left: 7%;
+  background-color: #080808;
+  color: #d2d2d2;
+}
+.input-field:focus,
+.message-field:focus {
+  border-color: #96c477;
+}
+.input-field:not(:placeholder-shown).input-field:not(:focus) + label {
+  top: 0%;
+  left: 7%;
+  background-color: #080808;
+  color: #d2d2d2;
+}
+.input-field:not(:placeholder-shown).input-field:not(:focus) {
+  border-color: #96c477;
+}
+.message-field:not(:placeholder-shown).message-field:not(:focus) + label {
+  top: 0%;
+  left: 7%;
+  background-color: #080808;
+  color: #d2d2d2;
+}
+.message-field:not(:placeholder-shown).message-field:not(:focus) {
+  border-color: #96c477;
+}
+.toast-msg {
+  position: absolute;
+  left: 8%;
+  top: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  margin-top: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.toast-msg.active {
+  margin-top: 0.5rem;
+  opacity: 1;
+}
+.toast-msg p {
+  font-size: 1rem;
+  color: #ff654a;
+}
+
 .copyright {
   width: 100%;
   text-align: center;
@@ -325,9 +452,6 @@ nav .fas {
   display: none;
 }
 @media only screen and (max-width: 600px) {
-  /* #header {
-        background-image: url("./images/");
-    } */
   .header-text {
     margin-top: 100%;
     font-size: 16px;
@@ -381,6 +505,9 @@ nav .fas {
   .contact-left,
   .contact-right {
     flex-basis: 100%;
+  }
+  .input-container .input-field {
+    padding-left: 4rem !important;
   }
   .copyright {
     font-size: 14px;

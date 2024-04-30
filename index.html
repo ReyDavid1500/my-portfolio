@@ -289,39 +289,65 @@
               >
                 <i class="fab fa-linkedin"></i>
               </a>
-              <!-- <a target="_blank" rel="noreferrer" href="#">
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a target="_blank" rel="noreferrer" href="#">
-                <i class="fab fa-instagram"></i>
-              </a> -->
             </div>
             <a href="./utils/davidguzmanCV.pdf" download class="btn btn2"
               >Download CV</a
             >
           </div>
           <div class="contact-right">
-            <form>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-              />
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                placeholder="Your Massage"
-              ></textarea>
+            <form class="contact-form">
+              <div class="input-container">
+                <input
+                  class="input-field"
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder=""
+                  class="input-field"
+                  autocomplete="off"
+                  required
+                />
+                <label for="name">Your Name</label>
+                <i id="input-icon" class="fa-regular fa-user"></i>
+
+                <span class="toast-msg" id="invalid-toast">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <p>Your name should be over 2 characters</p>
+                </span>
+              </div>
+              <div class="input-container">
+                <input
+                  class="input-field"
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder=""
+                  required
+                />
+                <label for="email">Your Email</label>
+                <i id="input-icon" class="fa-regular fa-envelope"></i>
+
+                <span class="toast-msg" id="invalid-toast">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <p>Please enter the correct email format</p>
+                </span>
+              </div>
+              <div class="input-container">
+                <textarea
+                  class="message-field"
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder=""
+                ></textarea>
+                <label for="message">Your Message</label>
+                <i id="input-icon" class="fa-regular fa-message"></i>
+
+                <span class="toast-msg" id="invalid-toast">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <p>Your message should be over 30 characters</p>
+                </span>
+              </div>
               <button type="submit" class="btn btn2">Submit</button>
             </form>
           </div>
