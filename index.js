@@ -4,7 +4,9 @@ const userInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const messageInput = document.getElementById("message");
 const form = document.querySelector("form");
-const invalidMsg = document.getElementById("invalid-toast")
+const invalidMsgName = document.getElementById("invalid-toast-name")
+const invalidMsgEmail = document.getElementById("invalid-toast-email")
+const invalidMsgMessage = document.getElementById("invalid-toast-message")
 
 
 export function openTab(event, tabName) {
@@ -31,36 +33,114 @@ export const closeMenu = () => {
 
 window.closeMenu = closeMenu;
 
+function validateEmail(emailValue) {
+    let value = /\S+@\S+\.\S+/;
+    return value.test(emailValue);
+}
+
+const loader = document.querySelector(".loader")
+
+function displayLoader() {
+    form.style.visibility = "hidden";
+    loader.style.display = "block";
+}
+
+function hideLoader() {
+    loader.style.display = "none";
+    form.style.visibility = "visible"
+}
+
+const snackbar = document.querySelector(".snackbar");
+
+const snackbarMessage = document.createElement("p")
+
+function showSnackbar(message) {
+    snackbarMessage.innerText = message;
+    snackbar.appendChild(snackbarMessage);
+    snackbar.classList.add("show");
+    setTimeout(() => {
+        snackbar.className =
+            snackbar.className.replace("show", "");
+    }, 5000)
+}
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const formData = new FormData(form);
-    const emailData = {
-        from: "Acme <onboarding@resend.dev>",
-        to: ["davidguzman1500@gmail.com"],
-        subject: formData.get('name'),
-        html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
-    };
+    if (userInput.value.length < 2) {
+        invalidMsgName.classList.add("active")
+    } else {
+        invalidMsgName.classList.remove("active")
+    }
 
-    fetch(import.meta.env.VITE_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(emailData)
+    if (!validateEmail(emailInput.value)) {
+        invalidMsgEmail.classList.add("active")
+    } else {
+        invalidMsgEmail.classList.remove("active")
+    }
+
+    if (messageInput.value.length < 30) {
+        invalidMsgMessage.classList.add("active")
+    } else {
+        invalidMsgMessage.classList.remove("active")
+    }
+
+    const errorMessages = document.querySelectorAll(".toast-msg");
+    let hasError = false;
+    Array.from(errorMessages).forEach(errorMessage => {
+        if (errorMessage.classList.contains("active"))
+            hasError = true;
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log('Email sent successfully!')
-                form.reset();
-                alert("Message sent successfully")
-            } else {
-                console.log('Failed to send email:', data.error);
-            }
+
+    if (hasError) {
+        return
+    } else {
+        const formData = new FormData(form);
+        const emailData = {
+            from: "Acme <onboarding@resend.dev>",
+            to: ["davidguzman1500@gmail.com"],
+            subject: formData.get('name'),
+            html: `${formData.get('message')}, te escribo del correo ${formData.get('email')}`,
+        };
+        displayLoader()
+        fetch(import.meta.env.VITE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(emailData)
         })
-        .catch(error => {
-            console.error('An error occurred:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    hideLoader()
+                    form.reset();
+                    showSnackbar("Message sent successfully!")
+                } else {
+                    console.log('Failed to send email:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            }
+            );
+    }
 });
+
+userInput.addEventListener("change", function (event) {
+    console.log(event.target.value.length)
+    if (event.target.value.length > 2) {
+        invalidMsgName.classList.remove("active");
+    }
+})
+messageInput.addEventListener("change", function (event) {
+    console.log(event.target.value.length)
+    if (event.target.value.length > 30) {
+        invalidMsgMessage.classList.remove("active");
+    }
+})
+
+
+
+
+

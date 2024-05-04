@@ -292,7 +292,8 @@
             >
           </div>
           <div class="contact-right">
-            <form class="contact-form">
+            <div class="loader"></div>
+            <form novalidate class="contact-form">
               <div class="input-container">
                 <input
                   class="input-field"
@@ -307,7 +308,7 @@
                 <label for="name">Your Name</label>
                 <i id="input-icon" class="fa-regular fa-user"></i>
 
-                <span class="toast-msg" id="invalid-toast">
+                <span class="toast-msg" id="invalid-toast-name">
                   <i class="fa-solid fa-circle-exclamation"></i>
                   <p>Your name should be over 2 characters</p>
                 </span>
@@ -324,7 +325,7 @@
                 <label for="email">Your Email</label>
                 <i id="input-icon" class="fa-regular fa-envelope"></i>
 
-                <span class="toast-msg" id="invalid-toast">
+                <span class="toast-msg" id="invalid-toast-email">
                   <i class="fa-solid fa-circle-exclamation"></i>
                   <p>Please enter the correct email format</p>
                 </span>
@@ -340,7 +341,7 @@
                 <label for="message">Your Message</label>
                 <i id="input-icon" class="fa-regular fa-message"></i>
 
-                <span class="toast-msg" id="invalid-toast">
+                <span class="toast-msg" id="invalid-toast-message">
                   <i class="fa-solid fa-circle-exclamation"></i>
                   <p>Your message should be over 30 characters</p>
                 </span>
@@ -355,8 +356,17 @@
           Copyright <i class="fa-regular fa-copyright"></i>. Made with
           <i class="fas fa-heart"></i> by David Guzmán.
         </p>
+        <p>
+          <a
+            target="_blank"
+            class="source-code"
+            href="https://github.com/ReyDavid1500/my-portfolio"
+            >Source Code</a
+          >
+        </p>
       </div>
     </section>
+    <div class="snackbar"></div>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

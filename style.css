@@ -242,7 +242,7 @@ nav ul li a:hover::after {
 }
 .btn {
   display: block;
-  margin: 50px auto;
+  margin: 20px auto;
   width: fit-content;
   border: 1px solid #ff004f;
   padding: 14px 50px;
@@ -435,6 +435,32 @@ form btn2 {
   font-size: 1rem;
   color: #ff654a;
 }
+.contact-right {
+  position: relative;
+}
+.loader {
+  border: 16px solid #707070;
+  border-top: 16px solid #ff004f;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  display: none;
+  z-index: 1;
+  bottom: 50%;
+  right: 40%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .copyright {
   width: 100%;
@@ -447,9 +473,49 @@ form btn2 {
 .copyright i {
   color: #ff004f;
 }
+.source-code {
+  text-decoration: none;
+  color: #96c477;
+  font-size: medium;
+  font-weight: bold;
+}
 /* Css Small Screen */
 nav .fas {
   display: none;
+}
+
+.snackbar {
+  visibility: hidden;
+  min-width: 350px;
+  min-height: 50px;
+  margin-left: -125px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #080808;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 50px;
+  border: 1px solid #ff004f;
+}
+.snackbar p {
+  font-size: x-large;
+  font-weight: bolder;
+}
+.snackbar.show {
+  visibility: visible;
+  animation-name: snackbarColor;
+  animation-duration: 1s;
+}
+@keyframes snackbarColor {
+  from {
+    bottom: -60px;
+  }
+  to {
+    bottom: 50px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .header-text {
