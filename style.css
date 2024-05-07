@@ -170,6 +170,9 @@ nav ul li a:hover::after {
 .certificates:nth-child(3) {
   transition-delay: 200ms;
 }
+.certificates:nth-child(4) {
+  transition-delay: 300ms;
+}
 .certificate-list div {
   background: #262626;
   padding: 40px;
