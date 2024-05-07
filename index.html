@@ -20,6 +20,7 @@
           <ul onclick="closeMenu()" id="side-menu">
             <li><a class="nav-menu" href="#header">Home</a></li>
             <li><a class="nav-menu" href="#about">About</a></li>
+            <li><a class="nav-menu" href="#certificates">Certificates</a></li>
             <li><a class="nav-menu" href="#portfolio">Portfolio</a></li>
             <li><a class="nav-menu" href="#contact">Contact</a></li>
             <i class="fas fa-times" onclick="closeMenu()"></i>
@@ -36,7 +37,7 @@
       </div>
       <!--About-->
     </header>
-    <section id="about">
+    <section id="about" class="hidden">
       <div class="container">
         <div class="row">
           <div class="about-col-1">
@@ -126,11 +127,11 @@
       </div>
     </section>
     <!--Services-->
-    <section id="certificates">
+    <section id="certificates" class="hidden">
       <div class="container">
         <h2 class="sub-title">My Certificates</h2>
         <div class="certificate-list">
-          <div>
+          <div class="certificates hidden">
             <i class="fa-solid fa-code"></i>
             <h2>HTML Y CSS</h2>
             <p>
@@ -141,7 +142,7 @@
               >See certificate</a
             >
           </div>
-          <div>
+          <div class="certificates hidden">
             <i class="fa-solid fa-code"></i>
             <h2>JavaScript</h2>
             <p>
@@ -156,7 +157,7 @@
               >See certificate</a
             >
           </div>
-          <div>
+          <div class="certificates hidden">
             <i class="fa-solid fa-file-code"></i>
             <h2>React JS</h2>
             <p>
@@ -172,11 +173,11 @@
       </div>
     </section>
     <!--Portfolio-->
-    <section id="portfolio">
+    <section id="portfolio" class="hidden">
       <div class="container">
         <h2 class="sub-title">My Work</h2>
         <div class="work-list">
-          <div class="work">
+          <div class="work hidden">
             <img
               loading="lazy"
               src="./images/kelly-sikkema-iqPAE_bNqTw-unsplash.jpg"
@@ -208,7 +209,7 @@
               </div>
             </div>
           </div>
-          <div class="work">
+          <div class="work hidden">
             <img
               loading="lazy"
               src="./images/markus-spiske--dbOrdtrR1A-unsplash.jpg"
@@ -232,7 +233,7 @@
               </div>
             </div>
           </div>
-          <div class="work">
+          <div class="work hidden">
             <img loading="lazy" src="./images/DSC07116.JPG" alt="work-3" />
             <div class="layer">
               <h3>Rumen Web Page</h3>
@@ -351,21 +352,21 @@
           </div>
         </div>
       </div>
-      <div class="copyright">
-        <p>
-          Copyright <i class="fa-regular fa-copyright"></i>. Made with
-          <i class="fas fa-heart"></i> by David Guzmán.
-        </p>
-        <p>
-          <a
-            target="_blank"
-            class="source-code"
-            href="https://github.com/ReyDavid1500/my-portfolio"
-            >Source Code</a
-          >
-        </p>
-      </div>
     </section>
+    <footer class="copyright">
+      <p>
+        Copyright <i class="fa-regular fa-copyright"></i>. Made with
+        <i class="fas fa-heart"></i> by David Guzmán.
+      </p>
+      <p>
+        <a
+          target="_blank"
+          class="source-code"
+          href="https://github.com/ReyDavid1500/my-portfolio"
+          >Source Code</a
+        >
+      </p>
+    </footer>
     <div class="snackbar"></div>
     <script type="module" src="./index.js"></script>
   </body>
