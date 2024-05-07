@@ -153,3 +153,26 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll(".hidden")
 hiddenElements.forEach(el => observer.observe(el))
+
+const swiper = new Swiper(".swiper", {
+  slidesPerView: 1,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+  spaceBetween: 30,
+  direction: "horizontal",
+  loop: false,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+  },
+})
