@@ -64,6 +64,9 @@ function showSnackbar(message) {
   }, 5000);
 }
 
+const baseURL = import.meta.env.VITE_SERVER_URL;
+console.log(baseURL)
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -104,10 +107,11 @@ form.addEventListener("submit", function (event) {
       )}`,
     };
     displayLoader();
-    fetch(import.meta.env.VITE_URL, {
+    fetch(`${baseURL}/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify(emailData),
     })
@@ -128,13 +132,11 @@ form.addEventListener("submit", function (event) {
 });
 
 userInput.addEventListener("change", function (event) {
-  console.log(event.target.value.length);
   if (event.target.value.length > 2) {
     invalidMsgName.classList.remove("active");
   }
 });
 messageInput.addEventListener("change", function (event) {
-  console.log(event.target.value.length);
   if (event.target.value.length > 30) {
     invalidMsgMessage.classList.remove("active");
   }
@@ -142,7 +144,6 @@ messageInput.addEventListener("change", function (event) {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    console.log(entry)
     if (entry.isIntersecting) {
       entry.target.classList.add("show-scroll")
     } else {
@@ -176,3 +177,31 @@ const swiper = new Swiper(".swiper", {
     type: 'bullets',
   },
 })
+
+const getCertificates = async () => {
+  try {
+    const res = await fetch(`${baseURL}/certificates`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+const data = await getCertificates()
+
+const certificateListContainer = document.querySelector(".certificate-list");
+data.map(certificate => {
+  let newDiv = document.createElement("div");
+  newDiv.className = ".certificates .hidden";
+  newDiv.innerHTML = `
+  <i class="${certificate.iconClass}"></i>
+  <h2>${certificate.title}</h2>
+  <p>${certificate.summary}</p>
+  <a target="_blank" rel="noreferrer" href=${certificate.pdf}
+  >See certificate</a>
+  `
+  certificateListContainer.appendChild(newDiv);
+})
+
+
+
