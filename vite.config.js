@@ -1,4 +1,9 @@
 // vite.config.js
-export default {
-    // config options
+optimizeDeps: {
+    esbuildOptions: {
+        target: 'esnext'
+    }
+}
+build: {
+    target: 'esnext'
 }
