@@ -242,15 +242,6 @@ nav ul li a:hover::after {
   width: 90%;
   margin: auto;
 }
-/* .work:nth-child(1) {
-  transition-delay: 500ms;
-}
-.work:nth-child(2) {
-  transition-delay: 200ms;
-}
-.work:nth-child(3) {
-  transition-delay: 0;
-} */
 .work img {
   width: 100%;
   height: 80%;

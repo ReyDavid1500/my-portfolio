@@ -64,8 +64,12 @@ function showSnackbar(message) {
   }, 5000);
 }
 
+const downloadCv = document.querySelector("#download-cv");
+downloadCv.addEventListener("click", () => {
+  showSnackbar("CV downloaded")
+})
+
 const baseURL = import.meta.env.VITE_SERVER_URL;
-console.log(baseURL)
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -178,16 +182,16 @@ const swiper = new Swiper(".swiper", {
   },
 })
 
-const getCertificates = async () => {
-  try {
-    const res = await fetch(`${baseURL}/certificates`);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log(error)
-  }
-}
-const data = await getCertificates()
+// const getCertificates = async () => {
+//   try {
+//     const res = await fetch(`${baseURL}/certificates`);
+//     const data = await res.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+import { data } from "./data";
 
 const certificateListContainer = document.querySelector(".certificate-list");
 data.map(certificate => {
